@@ -18,8 +18,7 @@ steps:
     projects: cdstoolkit.csproj
     zipAfterPublish: true
     modifyOutputPath: false
-    outputDir: $(Build.ArtifactStagingDirectory)/app
-    arguments: '-c $(buildConfiguration) -p:futureversion=$(Build.BuildNumber)'
+    arguments: '-c $(buildConfiguration) -p:futureversion=$(Build.BuildNumber) -o "$(Build.ArtifactStagingDirectory)/app"'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -29,5 +28,5 @@ steps:
     WebAppName: 'cdstoolbox'
     deployToSlotOrASE: true
     ResourceGroupName: 'cdstoolboxio'
-    SlotName: 'production'
+    SlotName: 'test'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/app/*.zip'
