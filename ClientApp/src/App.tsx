@@ -2,14 +2,14 @@ import React, { FunctionComponent, StatelessComponent } from 'react';
 import { Stack, Text, Link, Image, ImageFit, FontWeights, DefaultButton, PrimaryButton, Nav, ScrollablePane, Sticky, StickyPositionType, IconButton, Dropdown, HighContrastSelectorWhite, Panel, INavLink, INavStyleProps, INavStyles, IScrollablePaneProps } from 'office-ui-fabric-react';
 import { initializeIcons } from '@uifabric/icons';
 import { IPersonaSharedProps, Persona, PersonaSize, PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
-import { UserInfo } from 'react-adal';
-import { authContext } from './adalConfig';
+import { authProvider } from './authProvider'
+import { IAccountInfo } from 'react-aad-msal';
 
 
 initializeIcons();
 
 interface AppState {
-    userinfo: UserInfo,
+    userinfo: IAccountInfo | null,
     token: string | null
     navExpanded: boolean
 }
@@ -23,11 +23,12 @@ export class App extends React.Component<{}, AppState> {
         this.render = this.render.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
         this.getNavStyles = this.getNavStyles.bind(this);
+        this.logout = this.logout.bind(this);
 
         this.state = {
             navExpanded: true,
             token: null,
-            userinfo: authContext.getCachedUser()
+            userinfo: authProvider.getAccountInfo()
         };
     }
 
@@ -38,7 +39,7 @@ export class App extends React.Component<{}, AppState> {
             root: {
                 overflowX: "hidden"
             },
-            
+
             chevronButton: {
                 display: this.state.navExpanded ? "block" : "none"
             },
@@ -58,6 +59,10 @@ export class App extends React.Component<{}, AppState> {
         this.setState({
             navExpanded: !this.state.navExpanded
         });
+    }
+
+    logout() {
+        authProvider.logout();
     }
 
     render() {
@@ -84,7 +89,9 @@ export class App extends React.Component<{}, AppState> {
                         <Stack.Item><Image src="/logo.png" imageFit={ImageFit.none} alt="Logo" styles={{ root: { padding: "6px" } }} /></Stack.Item>
                         <Stack.Item><Dropdown styles={{ root: { width: "400px", backgroundColor: "black", color: "white" } }} options={[{ key: 1, text: "Organisation Blah 1" }, { key: 2, text: "Org2" }]} /></Stack.Item>
                         <Stack.Item grow={1}> </Stack.Item>
-                        <Stack.Item><Persona text={this.state.userinfo.userName} size={PersonaSize.size32} styles={{ primaryText: { color: "white", "selectors": { ":hover": { color: "white" } } } }} ></Persona></Stack.Item>
+                        <Stack.Item>
+                            <Persona onClick={this.logout} text={(this.state.userinfo && this.state.userinfo.account.name) || "<none>"} size={PersonaSize.size32} styles={{ primaryText: { color: "white", "selectors": { ":hover": { color: "white" } } } }} ></Persona>
+                        </Stack.Item>
 
                     </Stack>
 
@@ -109,7 +116,7 @@ export class App extends React.Component<{}, AppState> {
                                         </Stack>
                                     </Sticky>
 
-                                    <Nav 
+                                    <Nav
                                         styles={this.getNavStyles}
                                         groups={[
                                             {
@@ -137,7 +144,7 @@ export class App extends React.Component<{}, AppState> {
 
                         </Stack.Item>
                         <Stack.Item grow={1}>
-                                        Main
+                            Main
                         </Stack.Item>
                     </Stack>
 

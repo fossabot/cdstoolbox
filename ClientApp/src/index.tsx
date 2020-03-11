@@ -4,8 +4,8 @@ import { App } from './App';
 import { FluentCustomizations } from '@uifabric/fluent-theme';
 import { Customizer, mergeStyles } from 'office-ui-fabric-react';
 import * as serviceWorker from './serviceWorker';
-import { runWithMsal, msalGetToken, AuthenticationContext, UserInfo } from 'react-msal';
-import { authContext } from './adalConfig';
+import { AzureAD } from 'react-aad-msal';
+import { authProvider } from './authProvider';
 
 // Inject some global styles
 mergeStyles({
@@ -18,14 +18,15 @@ mergeStyles({
   }
 });
 
-runWithMsal(authContext, () => {
-  ReactDOM.render(
+
+ReactDOM.render(
+  <AzureAD provider={authProvider} forceLogin={false}>
     <Customizer {...FluentCustomizations}>
       <App />
-    </Customizer>,
-    document.getElementById('root')
-  )
-}, false);
+    </Customizer>
+  </AzureAD>,
+  document.getElementById('root')
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
