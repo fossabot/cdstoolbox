@@ -26,13 +26,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.84"
-     inkscape:cx="201.78571"
+     inkscape:cx="3.5714243"
      inkscape:cy="647.63686"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1137"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -60,9 +60,9 @@
        x="18.97982"
        y="48.839428"
        ry="5.8565526"
-       inkscape:export-filename="C:\src\cdstoolkit\ClientApp\public\logo.png"
-       inkscape:export-xdpi="45.419998"
-       inkscape:export-ydpi="45.419998" />
+       inkscape:export-filename="C:\src\cdstoolbox\ClientApp\public\logo.png"
+       inkscape:export-xdpi="25.030001"
+       inkscape:export-ydpi="25.030001" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.93202931;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:37.5;stroke-dasharray:none;stroke-opacity:1"
        id="rect817"
@@ -71,15 +71,15 @@
        x="22.718969"
        y="65.164177"
        ry="5.5562501"
-       inkscape:export-filename="C:\src\cdstoolkit\ClientApp\public\logo.png"
-       inkscape:export-xdpi="45.419998"
-       inkscape:export-ydpi="45.419998" />
+       inkscape:export-filename="C:\src\cdstoolbox\ClientApp\public\logo.png"
+       inkscape:export-xdpi="25.030001"
+       inkscape:export-ydpi="25.030001" />
     <g
        id="g833"
        transform="matrix(0.16559915,0.4886389,-0.4886389,0.16559915,102.42813,-11.098666)"
-       inkscape:export-filename="C:\src\cdstoolkit\ClientApp\public\logo.png"
-       inkscape:export-xdpi="45.419998"
-       inkscape:export-ydpi="45.419998">
+       inkscape:export-filename="C:\src\cdstoolbox\ClientApp\public\logo.png"
+       inkscape:export-xdpi="25.030001"
+       inkscape:export-ydpi="25.030001">
       <path
          sodipodi:open="true"
          d="m 92.259042,150.44212 a 13.229166,12.7 0 0 1 15.490808,-9.0043 13.229166,12.7 0 0 1 10.33807,14.27349 13.229166,12.7 0 0 1 -14.1864,10.80526 13.229166,12.7 0 0 1 -12.12804,-12.91014"
@@ -126,9 +126,9 @@
        id="flowRoot835"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        transform="matrix(0.65703582,0,0,0.65703582,-78.136197,-317.29467)"
-       inkscape:export-filename="C:\src\cdstoolkit\ClientApp\public\logo.png"
-       inkscape:export-xdpi="45.419998"
-       inkscape:export-ydpi="45.419998"><flowRegion
+       inkscape:export-filename="C:\src\cdstoolbox\ClientApp\public\logo.png"
+       inkscape:export-xdpi="25.030001"
+       inkscape:export-ydpi="25.030001"><flowRegion
          id="flowRegion837"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
            id="rect839"
@@ -138,5 +138,5 @@
            y="553.55414"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
          id="flowPara841"
-         style="letter-spacing:-1.49403274px">CDS Toolkit</flowPara></flowRoot>  </g>
+         style="letter-spacing:-1.49403274px">CDS Toolbox</flowPara></flowRoot>  </g>
 </svg>

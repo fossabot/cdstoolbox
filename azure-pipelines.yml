@@ -12,7 +12,7 @@ steps:
   displayName: Publish
   inputs:
     command: publish
-    projects: cdstoolkit.csproj
+    projects: cdstoolbox.csproj
     zipAfterPublish: true
     modifyOutputPath: false
     arguments: '-c $(buildConfiguration) -p:futureversion=$(Build.BuildNumber) -o "$(Build.ArtifactStagingDirectory)/app"'

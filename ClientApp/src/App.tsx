@@ -3,13 +3,13 @@ import { Stack, Text, Link, Image, ImageFit, FontWeights, DefaultButton, Primary
 import { initializeIcons } from '@uifabric/icons';
 import { IPersonaSharedProps, Persona, PersonaSize, PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
 import { authProvider } from './authProvider'
-import { IAccountInfo } from 'react-aad-msal';
+import { IAccountInfo, MsalAuthProvider } from 'react-aad-msal';
 
 
 initializeIcons();
 
 interface AppState {
-    userinfo: IAccountInfo | null,
+    userinfo: MsalAuthProvider,
     token: string | null
     navExpanded: boolean
 }
@@ -28,8 +28,10 @@ export class App extends React.Component<{}, AppState> {
         this.state = {
             navExpanded: true,
             token: null,
-            userinfo: authProvider.getAccountInfo()
+            userinfo: authProvider
         };
+
+        
     }
 
 
@@ -90,7 +92,7 @@ export class App extends React.Component<{}, AppState> {
                         <Stack.Item><Dropdown styles={{ root: { width: "400px", backgroundColor: "black", color: "white" } }} options={[{ key: 1, text: "Organisation Blah 1" }, { key: 2, text: "Org2" }]} /></Stack.Item>
                         <Stack.Item grow={1}> </Stack.Item>
                         <Stack.Item>
-                            <Persona onClick={this.logout} text={(this.state.userinfo && this.state.userinfo.account.name) || "<none>"} size={PersonaSize.size32} styles={{ primaryText: { color: "white", "selectors": { ":hover": { color: "white" } } } }} ></Persona>
+                            <Persona onClick={this.logout} text={(this.state.userinfo.getAccount() && this.state.userinfo.getAccount().name) || this.state.userinfo.} size={PersonaSize.size32} styles={{ primaryText: { color: "white", "selectors": { ":hover": { color: "white" } } } }} ></Persona>
                         </Stack.Item>
 
                     </Stack>

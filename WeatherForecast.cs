@@ -1,6 +1,6 @@
 using System;
 
-namespace cdstoolkit
+namespace cdstoolbox
 {
     public class WeatherForecast
     {

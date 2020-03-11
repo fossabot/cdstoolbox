@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace cdstoolkit.Controllers
+namespace cdstoolbox.Controllers
 {
     [ApiController]
     [Route("[controller]")]

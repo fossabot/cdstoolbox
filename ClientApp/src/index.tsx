@@ -4,7 +4,7 @@ import { App } from './App';
 import { FluentCustomizations } from '@uifabric/fluent-theme';
 import { Customizer, mergeStyles } from 'office-ui-fabric-react';
 import * as serviceWorker from './serviceWorker';
-import { AzureAD } from 'react-aad-msal';
+import { AzureAD, IAzureADFunctionProps, AuthenticationState } from 'react-aad-msal';
 import { authProvider } from './authProvider';
 
 // Inject some global styles
@@ -20,11 +20,24 @@ mergeStyles({
 
 
 ReactDOM.render(
-  <AzureAD provider={authProvider} forceLogin={false}>
-    <Customizer {...FluentCustomizations}>
-      <App />
-    </Customizer>
-  </AzureAD>,
+  (<AzureAD provider={authProvider} forceLogin={false}>
+    {({
+      login,
+      logout,
+      accountInfo,
+      authenticationState,
+      error
+    }: IAzureADFunctionProps) => {
+
+      if (authenticationState == AuthenticationState.InProgress) {
+        login();
+      return <h1>Logging in...</h1>;
+      }
+      return (<App />);
+
+    }
+    }
+  </AzureAD>),
   document.getElementById('root')
 )
 
