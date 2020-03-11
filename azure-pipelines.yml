@@ -12,11 +12,14 @@ steps:
   displayName: 'dotnet publish $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: Pubilsh
+  displayName: Publish
   inputs:
     command: publish
     projects: cdstoolkit.csproj
-    arguments: '-c $(buildConfiguration) -p:version=$(Build.BuildNumber) -o "$(Build.ArtifactStagingDirectory)/app"'
+    zipAfterPublish: true
+    modifyOutputPath: false
+    outputDir: $(Build.ArtifactStagingDirectory)/app
+    arguments: '-c $(buildConfiguration) -p:futureversion=$(Build.BuildNumber)'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
