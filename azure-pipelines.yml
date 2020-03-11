@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet publish --configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+  displayName: 'dotnet publish $(buildConfiguration)'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Microsoft Partner Network(56e76164-b3f9-445a-93ce-25c79f5ad59a)'
+    appType: 'webApp'
+    WebAppName: 'cdstoolbox'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'cdstoolboxio'
+    SlotName: 'production'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
