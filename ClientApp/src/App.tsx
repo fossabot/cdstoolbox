@@ -92,7 +92,7 @@ export class App extends React.Component<{}, AppState> {
                         <Stack.Item><Dropdown styles={{ root: { width: "400px", backgroundColor: "black", color: "white" } }} options={[{ key: 1, text: "Organisation Blah 1" }, { key: 2, text: "Org2" }]} /></Stack.Item>
                         <Stack.Item grow={1}> </Stack.Item>
                         <Stack.Item>
-                            <Persona onClick={this.logout} text={(this.state.userinfo.getAccount() && this.state.userinfo.getAccount().name) || this.state.userinfo.} size={PersonaSize.size32} styles={{ primaryText: { color: "white", "selectors": { ":hover": { color: "white" } } } }} ></Persona>
+                            <Persona onClick={this.logout} text={(this.state.userinfo.getAccount() && this.state.userinfo.getAccount().name) || "<none>"} size={PersonaSize.size32} styles={{ primaryText: { color: "white", "selectors": { ":hover": { color: "white" } } } }} ></Persona>
                         </Stack.Item>
 
                     </Stack>
