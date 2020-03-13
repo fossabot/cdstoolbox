@@ -1,3 +1,4 @@
+using cdstoolbox.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +23,7 @@ namespace cdstoolbox
         {
 
             services.AddControllersWithViews();
+            services.Configure<ClientOptions>(Configuration.GetSection("ClientOptions"));
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
